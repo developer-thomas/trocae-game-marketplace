@@ -1,0 +1,33 @@
+// Tipografia: Rajdhani/Orbitron para destaque, Inter para corpo de texto.
+// Fontes self-hosted via @fontsource (sem depender de CDN externo em produção).
+
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+
+@import '@fontsource/rajdhani/500.css';
+@import '@fontsource/rajdhani/600.css';
+@import '@fontsource/rajdhani/700.css';
+
+@import '@fontsource/orbitron/700.css';
+@import '@fontsource/orbitron/800.css';
+
+html,
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--trocae-text-primary);
+  background-color: var(--trocae-bg-base);
+}
+
+.font-display {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.font-hero {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,52 @@
+// Tokens de design do Trocaê — espelham tailwind.config.js em CSS custom
+// properties, para uso em Ionic (que lê variáveis CSS) e em qualquer SCSS
+// que não passe pelas classes utilitárias do Tailwind.
+
+:root {
+  // Cor
+  --trocae-bg-base: #090B12;
+  --trocae-bg-secondary: #101521;
+  --trocae-surface: #151C2A;
+  --trocae-surface-elevated: #1B2535;
+
+  --trocae-accent-cyan: #00E5FF;
+  --trocae-accent-magenta: #FF2BD6;
+  --trocae-accent-violet: #8B5CF6;
+
+  --trocae-success: #00D68F;
+  --trocae-warning: #FFC857;
+  --trocae-error: #FF4D67;
+
+  --trocae-text-primary: #F1F5F9;
+  --trocae-text-secondary: #94A3B8;
+  --trocae-border: rgba(148, 163, 184, 0.14);
+
+  // Raio
+  --trocae-radius-xs: 4px;
+  --trocae-radius-sm: 6px;
+  --trocae-radius-md: 10px;
+  --trocae-radius-lg: 14px;
+
+  // Sombra
+  --trocae-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --trocae-shadow-2: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --trocae-glow-cyan: 0 0 12px rgba(0, 229, 255, 0.25);
+  --trocae-glow-violet: 0 0 12px rgba(139, 92, 246, 0.3);
+
+  // Espaço
+  --trocae-space-section: 3rem;
+  --trocae-space-section-lg: 4rem;
+
+  // Sobrescreve as variáveis globais do Ionic para casar com a identidade do Trocaê.
+  --ion-background-color: var(--trocae-bg-base);
+  --ion-text-color: var(--trocae-text-primary);
+  --ion-color-primary: var(--trocae-accent-cyan);
+  --ion-color-primary-rgb: 0, 229, 255;
+  --ion-color-primary-contrast: #06131a;
+  --ion-color-primary-contrast-rgb: 6, 19, 26;
+  --ion-color-primary-shade: #00caded9;
+  --ion-color-primary-tint: #1ae8ff;
+  --ion-toolbar-background: var(--trocae-bg-secondary);
+  --ion-item-background: var(--trocae-surface);
+  --ion-border-color: var(--trocae-border);
+}

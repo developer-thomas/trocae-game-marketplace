@@ -1,0 +1,15 @@
+<div class="flex h-screen flex-col bg-bg-base text-text-primary">
+  <app-header />
+
+  <div class="flex flex-1 overflow-hidden">
+    <app-sidebar class="hidden lg:block" />
+
+    <main class="flex-1 overflow-y-auto">
+      <div class="mx-auto w-full max-w-[1600px] px-4 py-6 lg:px-8">
+        <router-outlet />
+      </div>
+    </main>
+  </div>
+
+  <app-bottom-nav class="lg:hidden" />
+</div>

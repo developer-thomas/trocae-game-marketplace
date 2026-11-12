@@ -1,0 +1,17 @@
+@layer components {
+  .status-dot {
+    @apply inline-block h-2 w-2 rounded-full;
+  }
+
+  .status-dot-active {
+    @apply status-dot bg-status-success shadow-[0_0_6px_rgba(0,214,143,0.6)];
+  }
+
+  .status-dot-pending {
+    @apply status-dot bg-status-warning;
+  }
+
+  .status-dot-error {
+    @apply status-dot bg-status-error;
+  }
+}

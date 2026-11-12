@@ -1,0 +1,9 @@
+// Breakpoints de referência (espelham tailwind.config.js). Usar via Tailwind
+// (sm:/md:/lg:/xl:/2xl:) sempre que possível; este arquivo só documenta os
+// valores para uso em casos pontuais de SCSS puro (ex.: dentro de Ionic).
+
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px; // sidebar aparece / bottom tabs somem
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;

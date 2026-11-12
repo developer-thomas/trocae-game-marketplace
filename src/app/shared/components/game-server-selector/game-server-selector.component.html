@@ -1,0 +1,19 @@
+<button
+  type="button"
+  disabled
+  title="Seleção de jogo e servidor ainda não disponível"
+  class="flex items-center gap-2 rounded-sm border border-border bg-bg-secondary px-3 py-1.5
+    text-sm text-text-secondary disabled:cursor-not-allowed"
+>
+  <app-icon [icon]="storefrontIcon" class="text-accent-cyan"></app-icon>
+
+  @if (context()) {
+    <span class="font-display font-semibold text-text-primary">
+      {{ context()!.gameName }} · {{ context()!.serverName }}
+    </span>
+  } @else {
+    <span>Selecione jogo e servidor</span>
+  }
+
+  <app-icon [icon]="chevronDownIcon"></app-icon>
+</button>

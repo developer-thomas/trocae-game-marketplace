@@ -1,0 +1,166 @@
+<div class="mx-auto max-w-lg">
+  @if (registered()) {
+    <section class="surface-panel p-8 text-center">
+      <div
+        class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full
+          border border-status-success/40 bg-status-success/10 text-status-success"
+      >
+        <app-icon [icon]="mailIcon" class="text-2xl"></app-icon>
+      </div>
+
+      <h1 class="font-display text-xl font-semibold text-text-primary">Conta criada</h1>
+
+      <p class="mt-2 text-sm text-text-secondary">
+        {{ registered()!.email }} — {{ registered()!.nextSteps }}
+      </p>
+    </section>
+  } @else {
+    <section class="surface-panel p-6 sm:p-8">
+      <h1 class="font-display text-xl font-semibold text-text-primary">Criar conta no Trocaê</h1>
+      <p class="mt-1 text-sm text-text-secondary">
+        Validamos seu CPF e sua idade antes de qualquer outra coisa. Nada disso aparece em texto
+        puro depois.
+      </p>
+
+      @if (submitError()) {
+        <div
+          class="mt-4 flex items-center gap-2 rounded-sm border border-status-error/40
+            bg-status-error/10 px-3 py-2 text-sm text-status-error"
+        >
+          <app-icon [icon]="alertIcon"></app-icon>
+          <span>{{ submitError() }}</span>
+        </div>
+      }
+
+      <form [formGroup]="form" (ngSubmit)="submit()" class="mt-6 flex flex-col gap-4">
+        <div class="flex flex-col gap-1.5">
+          <label for="fullName" class="text-sm font-medium text-text-secondary">Nome completo</label>
+          <input
+            id="fullName"
+            type="text"
+            formControlName="fullName"
+            autocomplete="name"
+            class="rounded-sm border border-border bg-surface px-3 py-2 text-sm text-text-primary
+              placeholder:text-text-secondary focus:outline-none focus-visible:ring-2
+              focus-visible:ring-accent-cyan/60"
+          />
+          @if (form.controls.fullName.invalid && form.controls.fullName.touched) {
+            <span class="text-xs text-status-error">Nome completo é obrigatório.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label for="birthDate" class="text-sm font-medium text-text-secondary">Data de nascimento</label>
+          <input
+            id="birthDate"
+            type="date"
+            formControlName="birthDate"
+            class="rounded-sm border border-border bg-surface px-3 py-2 text-sm text-text-primary
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/60"
+          />
+          @if (form.controls.birthDate.hasError('menorDeIdade') && form.controls.birthDate.touched) {
+            <span class="text-xs text-status-error">A conta precisa ter 18 anos completos.</span>
+          }
+          @if (form.controls.birthDate.hasError('required') && form.controls.birthDate.touched) {
+            <span class="text-xs text-status-error">Data de nascimento é obrigatória.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label for="email" class="text-sm font-medium text-text-secondary">E-mail</label>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            autocomplete="email"
+            class="rounded-sm border border-border bg-surface px-3 py-2 text-sm text-text-primary
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/60"
+          />
+          @if (form.controls.email.invalid && form.controls.email.touched) {
+            <span class="text-xs text-status-error">Informe um e-mail válido.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label for="phoneNumber" class="text-sm font-medium text-text-secondary">Telefone</label>
+          <input
+            id="phoneNumber"
+            type="tel"
+            formControlName="phoneNumber"
+            autocomplete="tel"
+            placeholder="+55 11 99999-0000"
+            class="rounded-sm border border-border bg-surface px-3 py-2 text-sm text-text-primary
+              placeholder:text-text-secondary focus:outline-none focus-visible:ring-2
+              focus-visible:ring-accent-cyan/60"
+          />
+          @if (form.controls.phoneNumber.invalid && form.controls.phoneNumber.touched) {
+            <span class="text-xs text-status-error">Telefone é obrigatório.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label for="cpf" class="text-sm font-medium text-text-secondary">CPF</label>
+          <input
+            id="cpf"
+            type="text"
+            formControlName="cpf"
+            inputmode="numeric"
+            placeholder="000.000.000-00"
+            class="rounded-sm border border-border bg-surface px-3 py-2 text-sm text-text-primary
+              placeholder:text-text-secondary focus:outline-none focus-visible:ring-2
+              focus-visible:ring-accent-cyan/60"
+          />
+          @if (form.controls.cpf.hasError('cpfInvalido') && form.controls.cpf.touched) {
+            <span class="text-xs text-status-error">CPF inválido.</span>
+          }
+          @if (form.controls.cpf.hasError('required') && form.controls.cpf.touched) {
+            <span class="text-xs text-status-error">CPF é obrigatório.</span>
+          }
+          <span class="text-xs text-text-secondary">
+            Validado localmente, nunca armazenado em texto puro.
+          </span>
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label for="password" class="text-sm font-medium text-text-secondary">Senha</label>
+          <input
+            id="password"
+            type="password"
+            formControlName="password"
+            autocomplete="new-password"
+            class="rounded-sm border border-border bg-surface px-3 py-2 text-sm text-text-primary
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/60"
+          />
+          @if (form.controls.password.hasError('minlength') && form.controls.password.touched) {
+            <span class="text-xs text-status-error">Mínimo de 8 caracteres.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label for="confirmPassword" class="text-sm font-medium text-text-secondary">
+            Confirmar senha
+          </label>
+          <input
+            id="confirmPassword"
+            type="password"
+            formControlName="confirmPassword"
+            autocomplete="new-password"
+            class="rounded-sm border border-border bg-surface px-3 py-2 text-sm text-text-primary
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/60"
+          />
+          @if (form.hasError('senhasDiferentes') && form.controls.confirmPassword.touched) {
+            <span class="text-xs text-status-error">As senhas não coincidem.</span>
+          }
+        </div>
+
+        <button type="submit" class="btn-primary mt-2 font-display" [disabled]="isSubmitting()">
+          @if (isSubmitting()) {
+            <span>Criando conta...</span>
+          } @else {
+            <span>Criar conta</span>
+          }
+        </button>
+      </form>
+    </section>
+  }
+</div>

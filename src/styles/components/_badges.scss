@@ -1,0 +1,15 @@
+@layer components {
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-xs px-2 py-0.5 text-xs font-medium;
+  }
+
+  .badge-category {
+    @apply badge bg-bg-secondary text-text-secondary border border-border;
+  }
+
+  // Título administrativo (Marechal, Archon...) — visualmente distinto da
+  // reputação, nunca usa a cor de status (verde/amarelo/vermelho).
+  .badge-title {
+    @apply badge bg-accent-violet/10 text-accent-violet border border-accent-violet/40 shadow-glow-violet;
+  }
+}

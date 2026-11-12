@@ -1,0 +1,13 @@
+@layer components {
+  .surface-card {
+    @apply bg-surface border border-border rounded-md transition-[border-color,box-shadow,transform] duration-150;
+  }
+
+  .surface-card-hover {
+    @apply surface-card hover:border-accent-cyan/50 hover:shadow-glow-cyan hover:-translate-y-0.5;
+  }
+
+  .surface-panel {
+    @apply bg-surface-elevated border border-border rounded-lg shadow-2;
+  }
+}

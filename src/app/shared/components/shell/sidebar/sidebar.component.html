@@ -1,0 +1,20 @@
+<aside
+  class="w-60 shrink-0 border-r border-border bg-bg-secondary px-3 py-4"
+>
+  <nav class="flex flex-col gap-1">
+    @for (item of items; track item.route + item.label) {
+      <a
+        [routerLink]="item.disabled ? null : item.route"
+        routerLinkActive="bg-surface text-accent-cyan border-accent-cyan/40"
+        [class.cursor-not-allowed]="item.disabled"
+        [class.opacity-40]="item.disabled"
+        [title]="item.disabled ? 'Ainda não disponível' : item.label"
+        class="flex items-center gap-3 rounded-sm border border-transparent px-3 py-2.5
+          text-sm text-text-secondary transition-colors hover:bg-surface hover:text-text-primary"
+      >
+        <app-icon [icon]="item.icon" class="text-lg"></app-icon>
+        <span class="font-display font-medium">{{ item.label }}</span>
+      </a>
+    }
+  </nav>
+</aside>

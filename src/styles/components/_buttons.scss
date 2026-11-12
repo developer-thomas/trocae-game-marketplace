@@ -1,0 +1,26 @@
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-4 py-2
+      text-sm font-medium transition-colors duration-150
+      focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/60
+      disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent-cyan text-bg-base hover:shadow-glow-cyan hover:bg-accent-cyan/90;
+  }
+
+  .btn-secondary {
+    @apply btn bg-transparent text-text-primary border border-border
+      hover:border-accent-violet/60 hover:text-accent-violet;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-text-secondary hover:text-text-primary hover:bg-surface;
+  }
+
+  .btn-danger {
+    @apply btn bg-transparent text-status-error border border-status-error/40
+      hover:bg-status-error/10;
+  }
+}
